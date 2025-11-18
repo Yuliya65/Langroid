@@ -23,7 +23,7 @@ jobs:
     timeout-minutes: 3
     steps:
       - name: Cancel Previous Workflow Runs
-        uses: styfle/cancel-workflow-action@0.9.1
+        uses: styfle/cancel-workflow-action@85880fa0301c86cca9da44039ee3bb12d3bedbfa # 0.12.1
         with:
           access_token: ${{ github.token }}
   pytest:
