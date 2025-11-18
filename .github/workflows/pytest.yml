@@ -68,7 +68,7 @@ jobs:
         ports:
           - "5432:5432"
       qdrant:
-        image: qdrant/qdrant:v1.15.5
+        image: qdrant/qdrant:v1.16.0@sha256:1005201498cf927d835383d0f918b17d8c9da7db58550f169f694455e42d78f4
         ports:
           - "6333:6333"
         env:
