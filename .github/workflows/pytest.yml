@@ -23,7 +23,7 @@ jobs:
     timeout-minutes: 3
     steps:
       - name: Cancel Previous Workflow Runs
-        uses: styfle/cancel-workflow-action@0.9.1
+        uses: styfle/cancel-workflow-action@a40b8845c0683271d9f53dfcb887a7e181d3918b # 0.9.1
         with:
           access_token: ${{ github.token }}
   pytest:
@@ -31,25 +31,25 @@ jobs:
     runs-on: ubuntu-latest
     services:
       meilisearch:
-        image: getmeili/meilisearch:latest
+        image: getmeili/meilisearch:latest@sha256:773759814f59214a0971dc8810ae1d85002e92166d99760cd546d5ee8ac37c14
         ports:
           - 7700:7700
         options: --env MEILI_MASTER_KEY=masterKey
       arangodb:
-        image: arangodb:latest
+        image: arangodb:latest@sha256:76624eca04b8f59d7705273a2785f713a92390fee754af22566fae9d6bb8093f
         ports:
           - 8529:8529
         env:
           ARANGO_ROOT_PASSWORD: rootpassword
       neo4j:
-        image: neo4j:latest
+        image: neo4j:latest@sha256:9c1ccfeace879b06069dcbea32dfb9112cdd1c7e24036f54097b7eb9880e3498
         ports:
           - 7687:7687
           - 7474:7474
         env:
           NEO4J_AUTH: neo4j/password
       weaviate:
-        image: semitechnologies/weaviate:latest
+        image: semitechnologies/weaviate:latest@sha256:9df3e25c7decba3f906829c7500129a98a21f9e8e1b816705e303c317ec6b8d5
         ports:
           - "8080:8080"
           - "50051:50051"  # Add gRPC port
@@ -60,7 +60,7 @@ jobs:
           ENABLE_MODULES: "text2vec-openai"
           CLUSTER_HOSTNAME: "node1"
       postgres:
-        image: ankane/pgvector:latest
+        image: ankane/pgvector:latest@sha256:956744bd14e9cbdf639c61c2a2a7c7c2c48a9c8cdd42f7de4ac034f4e96b90f8
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
@@ -68,7 +68,7 @@ jobs:
         ports:
           - "5432:5432"
       qdrant:
-        image: qdrant/qdrant:v1.15.5
+        image: qdrant/qdrant:v1.15.5@sha256:0fb8897412abc81d1c0430a899b9a81eb8328aa634e7242d1bc804c1fe8fe863
         ports:
           - "6333:6333"
         env:
@@ -111,11 +111,11 @@ jobs:
       
     steps:
     - name: Check out repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
     - name: Increase ulimit
       run: ulimit -n 4096
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@7f4fc3e22c37d6ff65e88745f38bd3157c663f7c # v4
       with:
         python-version: 3.11  # Replace with your desired Python version
 
@@ -134,7 +134,7 @@ jobs:
     #       uv-${{ runner.os }}
 
     - name: Setup uv
-      uses: astral-sh/setup-uv@v5
+      uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86 # v5
       with: 
         enable-cache: true
         cache-dependency-glob: "uv.lock"
@@ -182,7 +182,7 @@ jobs:
       run: uv pip freeze > requirements_github.txt
 
     - name: Upload dependencies file
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
       with:
         name: github-dependencies
         path: requirements_github.txt
@@ -253,12 +253,12 @@ jobs:
     - name: Generate XML coverage report
       run: uv run coverage xml
     - name: Publish Test Results
-      uses: EnricoMi/publish-unit-test-result-action@v2
+      uses: EnricoMi/publish-unit-test-result-action@34d7c956a59aed1bfebf31df77b8de55db9bbaaf # v2
       if: always()
       with:
         files: "test-results.xml"
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v4
+      uses: codecov/codecov-action@b9fd7d16f6d7d1b5d2bec1a2887e65ceed900238 # v4
       with:
         file: ./coverage.xml
         flags: unittests
