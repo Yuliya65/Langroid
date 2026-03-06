@@ -82,10 +82,10 @@ hf-transformers = [
 ]
 
 vecdbs = [
-    "lancedb<0.9.0,>=0.8.2",
+    "lancedb<0.29.3,>=0.29.2",
     "tantivy<0.22.0,>=0.21.0",
     "pyarrow<16.0.0,>=15.0.0",
-    "chromadb<=0.4.23,>=0.4.21",
+    "chromadb<=0.6.3,>=0.6.3",
     "weaviate-client>=4.9.6",
     "pinecone-client>=5.0.1",
 ]
@@ -113,7 +113,7 @@ all = [
     "torch<3.0.0,>=2.0.0",
     "transformers<5.0.0,>=4.40.1",
     "huggingface-hub<1.0.0,>=0.21.2",
-    "chromadb<=0.4.23,>=0.4.21",
+    "chromadb<=0.6.3,>=0.6.3",
     "weaviate-client>=4.9.6",
     "metaphor-python<0.2.0,>=0.1.23",
     "neo4j<6.0.0,>=5.14.1",
@@ -122,7 +122,7 @@ all = [
     "litellm<2.0.0,>=1.30.1",
     "chainlit<3.0.0,>=2.0.1",
     "python-socketio<6.0.0,>=5.11.0",
-    "fastembed<0.4.0,>=0.3.1",
+    "fastembed<0.7.5,>=0.7.4",
     "pgvector>=0.3.6",
     "psycopg2-binary>=2.9.10",
     "marker-pdf",
@@ -130,7 +130,7 @@ all = [
 
 # More granular groupings
 lancedb = [
-    "lancedb<0.9.0,>=0.8.2",
+    "lancedb<0.29.3,>=0.29.2",
     "tantivy<0.22.0,>=0.21.0",
     "pyarrow<16.0.0,>=15.0.0",
 ]
@@ -234,7 +234,7 @@ chainlit = [
 ]
 
 chromadb = [
-    "chromadb<=0.4.23,>=0.4.21",
+    "chromadb<=0.6.3,>=0.6.3",
 ]
 weaviate = [
     "weaviate-client>=4.9.6",
@@ -245,7 +245,7 @@ meilisearch = [
 ]
 
 fastembed = [
-    "fastembed<0.4.0,>=0.3.1",
+    "fastembed<0.7.5,>=0.7.4",
 ]
 google-genai = [
     "google-genai>=1.0.0",
