@@ -279,7 +279,7 @@ crawl4ai = [
 [dependency-groups]
 dev = [
     "black[jupyter]>=24.3.0,<25.0.0",
-    "flake8<7.0.0,>=6.0.0",
+    "flake8<7.3.1,>=7.3.0",
     "mypy<2.0.0,>=1.11.2",
     "ruff<1.0.0,>=0.8.4",
     "pre-commit<4.0.0,>=3.3.2",
