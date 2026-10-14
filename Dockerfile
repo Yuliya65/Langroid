@@ -1,4 +1,4 @@
-FROM --platform=$TARGETPLATFORM python:3.11
+FROM --platform=$TARGETPLATFORM python:3.15@sha256:16e7e5fc4e79fe153c818ac9b46595c7addddaad744d49595377836e300ad1c6
 
 # Set environment variables to non-interactive (this prevents some prompts)
 ENV DEBIAN_FRONTEND=non-interactive \
